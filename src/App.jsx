@@ -6,6 +6,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+const { VITE_APP_PATH } = import.meta.env;
+
+
 function App() {
   const [count, setCount] = useState(0)
   const modalRef = useRef(null);  //  宣告 modal 參考
@@ -13,7 +16,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get('https://randomuser.me/api/');
+      const res = await axios.get(VITE_APP_PATH);
       console.log(res);
       
       openModal();  //  讀取資料後自動開啟 modal
